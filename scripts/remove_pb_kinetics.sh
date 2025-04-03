@@ -11,12 +11,12 @@
 #!/bin/bash
 
 #    Author:
-#    Ira Deveson and Leah Kemp (l.kemp@garvan.org.au)
+#    Ira Deveson and Leah Kemp
 #    Genomic Technologies Group
 #    Garvan Institute Medical Research
 
 #    Script Description:
-#    Remove kinetics data from a pacbio uBAM NCI
+#    Remove kinetics data from a pacbio uBAM on NCI
 
 #    Assumptions:
 #    * access to kr68 project (or the user modifies the PBS storage as appropriate)
