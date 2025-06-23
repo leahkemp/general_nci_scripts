@@ -8,8 +8,6 @@
 #PBS -l walltime=3:00:00
 #PBS -l wd
 
-#!/bin/bash
-
 #    Author:
 #    Ira Deveson and Leah Kemp
 #    Genomic Technologies Group
@@ -21,9 +19,6 @@
 #    Assumptions:
 #    * access to kr68 project (or the user modifies the PBS storage as appropriate)
 #    * input file is a pacbio uBAM contining kinetic data
-
-#    Usage:
-#    lk0657@gadi-login-09:~:$ qsub -v BAM=./RGBX240282/84088_240923_035552_s1.hifi_reads.bc2005.bam ./remove_pb_kinetics.sh
 
 # define functions
 # usage
