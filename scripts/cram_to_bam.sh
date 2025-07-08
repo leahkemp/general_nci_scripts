@@ -62,7 +62,7 @@ FILENAME=$(basename ${CRAM} | sed 's/.cram//')  || die "Error: issue getting fil
 
 # run conversion
 log "Running CRAM to BAM conversion"
-samtools view -@ ${PBS_NCPUS} -T ${REF} -b -o ${DIR}/${FILENAME}.bam ${CRAM} || die "Error: issue converting CRAM to BAM."
+samtools view -@ ${PBS_NCPUS} -T ${REF} -b -o ${DIR}/${FILENAME}.bam ${CRAM} 2>${FILENAME}.cram_to_bam.sderror || die "Error: issue converting CRAM to BAM."
 samtools index -@ ${PBS_NCPUS} ${DIR}/${FILENAME}.bam
 
 log "Complete!"
