@@ -125,7 +125,7 @@ jasmine threads=${PBS_NCPUS} out_dir=./ genome_file=${REF} file_list=uncompresse
 # fix vcf header (remove prefix to sample names that jasmine adds)
 log "Fixing VCF header."
 grep '##' ${PREFIX}.sv.tmp.vcf > ${OUT_DIR}/${PREFIX}.sv.vcf
-grep '#CHROM' ${PREFIX}.sv.tmp.vcf | sed 's/_[0-9]\+$//' | sed 's/_[0-9]\t/\t/' >> ${OUT_DIR}/${PREFIX}.sv.vcf
+grep '#CHROM' ${PREFIX}.sv.tmp.vcf | sed 's/\t[0-9]_/\t/g' >> ${OUT_DIR}/${PREFIX}.sv.vcf
 grep -v '#' ${PREFIX}.sv.tmp.vcf >> ${OUT_DIR}/${PREFIX}.sv.vcf
 bcftools sort ${OUT_DIR}/${PREFIX}.sv.vcf -o ${OUT_DIR}/${PREFIX}.sv.vcf
 
