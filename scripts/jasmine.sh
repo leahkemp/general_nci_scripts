@@ -23,6 +23,8 @@
 #    * all VCF files to be merged are from the same data type (ONT or pacbio)
 #    * all VCF files to be merged are from the same SNP/indel calling software (sniffles or cuteSV)
 #    * all VCF files to be merged are called against the same reference genome
+#    * proband must be listed first in IN_VCFS file
+#    * samples must be listed in the same order in both the IN_VCFS and IN_BAMS files
 
 # define functions
 # usage
@@ -37,6 +39,8 @@ usage() {
     echo "    OUT_DIR=/output/directory"
     echo ""
     echo "Information:"
+    echo "    proband must be listed first in IN_VCFS file"
+    echo "    samples must be listed in the same order in both the IN_VCFS and IN_BAMS files"
     echo "    PREFIX is used to label the output filename. Eg. LRS00061.sv.vcf.gz"
     echo
     exit 1
@@ -86,7 +90,7 @@ mkdir -p ${OUT_DIR}
 
 # set vars
 DATE=$(date +"%Y%m%d-%H%M%S")
-WORK="jasmine_work_${PREFIX}_${DATE}"
+WORK=$(realpath jasmine_work_${PREFIX}_${DATE})
 
 # get full paths
 IN_VCFS=$(realpath ${IN_VCFS})
@@ -106,10 +110,12 @@ mkdir -p ${WORK}
 cd ${WORK}
 cat ${IN_VCFS} | xargs -P ${PBS_NCPUS} -I{} bash -c '
     FILE="{}"
-    FILENAME=$(basename ${FILE} | sed 's/.vcf.*//')
-    gunzip -c ${FILE} > ${FILENAME}.vcf
-    realpath ${FILENAME}.vcf >> uncompressed_vcfs.txt
+    FILENAME=$(basename ${FILE})
+    gunzip -c ${FILE} > ${FILENAME}.uncompressed
 ' || die "Error: issue un-compressing VCF files before merge with Jasmine."
+
+# make new list of VCF files
+sed "s|.*/|${WORK}/|; s|\$|.uncompressed|" "${IN_VCFS}" >> uncompressed_vcfs.txt
 
 # conditionally define iris arguments
 if [[ "${DATA_TYPE}" == "ont" ]]; then
