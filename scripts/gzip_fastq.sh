@@ -57,7 +57,7 @@ mkdir -p ${OUT_DIR}
 [ ! -w "${OUT_DIR}" ] && die "Error: output directory '${OUT_DIR}' is not writable."
 
 log "Compressing FASTQ."
-gzip ${IN_FASTQ} -c > ${OUT_DIR}/${FILENAME}.gz
+gzip ${IN_FASTQ} -c > ${OUT_DIR}/${FILENAME}.gz || die "Error: issue compressing FASTQ file."
 
 log "Complete!"
 
