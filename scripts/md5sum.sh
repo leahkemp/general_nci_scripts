@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #PBS -P kr68
-#PBS -l storage=gdata/kr68+scratch/kr68+gdata/ox63
+#PBS -l storage=gdata/kr68+scratch/kr68
 #PBS -q normal
 #PBS -l ncpus=1
 #PBS -l mem=4gb
