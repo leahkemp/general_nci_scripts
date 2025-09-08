@@ -17,6 +17,7 @@
 #    Annotate SNP/indel VCF file with VEP on NCI
 
 #    Assumptions:
+#    * hg38
 #    * access to kr68 project (or the user modifies the PBS storage as appropriate)
 #    * access to if89 project where installations are hosted
 #    * access to xy86 project where variant databases are hosted
