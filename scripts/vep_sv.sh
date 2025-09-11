@@ -76,8 +76,7 @@ module load ensemblorg/ensembl-vep/release_112.0
 
 # run VEP
 log "Running VEP."
-vep -i ${IN_VCF} -o ${OUT_DIR}/${FILENAME}.annotated.vcf.gz --format vcf --vcf --fasta ${REF} --dir ${VEP_DB} --assembly GRCh38 --species homo_sapiens --cache --offline --merged --sift b --polyphen b --symbol --hgvs --hgvsg --uploaded_allele --check_existing --filter_common --distance 0 --nearest gene --canonical --mane --pick --fork ${PBS_NCPUS} --no_stats --compress_output bgzip --dont_skip
---plugin CADD,sv=${CADD_SV_DB} || die "Error: issue annotating VCF with VEP."
+vep -i ${IN_VCF} -o ${OUT_DIR}/${FILENAME}.annotated.vcf.gz --format vcf --vcf --fasta ${REF} --dir ${VEP_DB} --assembly GRCh38 --species homo_sapiens --cache --offline --merged --sift b --polyphen b --symbol --hgvs --hgvsg --uploaded_allele --check_existing --filter_common --distance 0 --nearest gene --canonical --mane --pick --fork ${PBS_NCPUS} --no_stats --compress_output bgzip --dont_skip --plugin CADD,sv=${CADD_SV_DB} || die "Error: issue annotating VCF with VEP."
 
 # index VCF
 log "Indexing VCF."
