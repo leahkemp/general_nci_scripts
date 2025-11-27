@@ -58,7 +58,7 @@ mkdir -p ${OUT_DIR}
 
 # tar and md5sum
 log "Tarring ${DIR}."
-tar -cvf ${OUT_DIR}/${ID}.tar ${DIR} || die "Error: issue tarring ${DIR}."
+tar -cvf ${OUT_DIR}/${ID}.tar -C ${DIR} || die "Error: issue tarring ${DIR}."
 log "Md5summing ${OUT_DIR}/${ID}.tar."
 md5sum ${OUT_DIR}/${ID}.tar > ${ID}.tar.md5 || die "Error: issue md5summing tarball."
 
