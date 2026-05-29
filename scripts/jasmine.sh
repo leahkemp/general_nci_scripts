@@ -121,7 +121,7 @@ sed "s|.*/|${WORK}/|; s|\$|.uncompressed|" "${IN_VCFS}" >> uncompressed_vcfs.txt
 if [[ "${DATA_TYPE}" == "ont" ]]; then
     IRIS_ARGS="--run_iris iris_args=min_ins_length=20,--rerunracon,--keep_long_variants"
 elif [[ "${DATA_TYPE}" == "pacbio" ]]; then
-    IRIS_ARGS="--run_iris iris_args=min_ins_length=20,--rerunracon,--keep_long_variants,--pacbio'"
+    IRIS_ARGS="--run_iris iris_args=min_ins_length=20,--rerunracon,--keep_long_variants,--pacbio"
 fi
 
 # run jasmine
