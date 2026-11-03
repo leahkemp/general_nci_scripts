@@ -8,12 +8,7 @@
 #PBS -l walltime=06:00:00
 #PBS -l wd
 
-#    Author:
-#    Leah Kemp
-#    Genomic Technologies Group
-#    Garvan Institute Medical Research
-
-#    Script Description:
+#    Script description:
 #    Merge multiple Clair3 or DeepVariant SNP/indel GVCF's into a joint call VCF with GLnexus on NCI
 
 #    Assumptions:

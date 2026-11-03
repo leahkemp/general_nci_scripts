@@ -8,12 +8,7 @@
 #PBS -l walltime=3:00:00
 #PBS -l wd
 
-#    Author:
-#    Ira Deveson and Leah Kemp
-#    Genomic Technologies Group
-#    Garvan Institute Medical Research
-
-#    Script Description:
+#    Script description:
 #    Remove kinetics data from a pacbio uBAM on NCI
 
 #    Assumptions:

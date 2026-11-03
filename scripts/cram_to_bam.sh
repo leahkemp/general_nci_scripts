@@ -8,12 +8,7 @@
 #PBS -l walltime=04:00:00
 #PBS -l wd
 
-#    Author:
-#    Leah Kemp
-#    Genomic Technologies Group
-#    Garvan Institute Medical Research
-
-#    Script Description:
+#    Script description:
 #    Convert CRAM to BAM on NCI
 
 #    Assumptions:

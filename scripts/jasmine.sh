@@ -8,12 +8,7 @@
 #PBS -l walltime=12:00:00
 #PBS -l wd
 
-#    Author:
-#    Leah Kemp
-#    Genomic Technologies Group
-#    Garvan Institute Medical Research
-
-#    Script Description:
+#    Script description:
 #    Merge multiple ONT or pacbio sniffles/cuteSV SV VCF's into a joint call VCF with Jasmine on NCI
 
 #    Assumptions:

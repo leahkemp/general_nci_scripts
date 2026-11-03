@@ -8,12 +8,7 @@
 #PBS -l walltime=24:00:00
 #PBS -l wd
 
-#    Author:
-#    Leah Kemp
-#    Genomic Technologies Group
-#    Garvan Institute Medical Research
-
-#    Script Description:
+#    Script description:
 #    Annotate SV VCF file with VEP on NCI
 
 #    Assumptions:
