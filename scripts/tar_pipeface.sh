@@ -40,7 +40,7 @@ log() {
 }
 
 # define default params
-: "${OUT_DIR:=./}"
+: "${OUT_DIR:=.}"
 
 # user input checks
 [ -z "${ID}" ] && usage
@@ -48,13 +48,14 @@ log() {
 [ -z "${OUT_DIR}" ] && usage
 test -e "${DIR}" || die "Error: '${DIR}' directory doesn't exist."
 # check output directory is writable
-mkdir -p ${OUT_DIR}
+mkdir -p "${OUT_DIR}"
 [ ! -w "${OUT_DIR}" ] && die "Error: output directory '${OUT_DIR}' is not writable."
 
 # tar and md5sum
 log "Tarring ${DIR}."
-tar -C ${DIR} --exclude='*.puzzleapp.yaml' -cvf ${OUT_DIR}/${ID}.tar . || die "Error: issue tarring ${DIR}."
+tar -C "${DIR}" --exclude='*.puzzleapp.yaml' -cvf "${OUT_DIR}/${ID}.tar" . || die "Error: issue tarring ${DIR}."
 log "Md5summing ${OUT_DIR}/${ID}.tar."
-md5sum ${OUT_DIR}/${ID}.tar > ${ID}.tar.md5 || die "Error: issue md5summing tarball."
+( cd "${OUT_DIR}" && md5sum "${ID}.tar" > "${ID}.tar.md5" ) || die "Error: issue md5summing tarball."
 
 log "Complete!"
+
